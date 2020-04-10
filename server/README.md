@@ -38,25 +38,35 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [✓] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  routing and middleware
 
-- [ ] Describe a Resource?
+- [✓] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+	middleware is what happens in-between when a request comes in and when the response goes out. with middleware we can achieve things such as authentication, validation, or logging, as well as provide modularity to our code.
 
-- [ ] How can we partition our application into sub-applications?
+- [✓] Describe a Resource?
+
+  a resource is what our endpoints are returning
+
+- [✓] What can the API return to help clients know if a request was successful?
+
+  the API can return status codes in the 200 range, new HTML, and/or messages that we set
+
+- [✓] How can we partition our application into sub-applications?
+
+  we can separate our endpoints into their own files, potentially in separate folders, and then import (require) them in a common server.js file
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [✓] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [✓] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Retrieve the list of actions for a project.
+- [✓] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
+- [✓] Retrieve the list of actions for a project.
 
 Please read the following sections before implementing the Minimum Viable Product, they describe how the database is structured and the files and methods available for interacting with the data.
 
@@ -100,7 +110,7 @@ We have provided test data for all the resources.
 
 ## Stretch Goal
 
-- Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
-- From the React application show a list of all _projects_ using the API you built.
-- Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
-- Add styling!
+✓ Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
+✓ From the React application show a list of all _projects_ using the API you built.
+✓ Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
+✓ Add styling!
