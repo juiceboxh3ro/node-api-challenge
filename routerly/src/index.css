@@ -7,7 +7,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.proj {
+  text-align: center;
+}
+
+.act-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.proj-p, .act-p {
+  margin-right: 10px;
+}
+
+.proj-p {
+  margin-bottom: 30px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  background: coral;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+#container { position: relative; }
+#actions {
+  position: absolute;
+  right: 40%;
+  bottom: -150%;
 }

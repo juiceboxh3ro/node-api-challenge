@@ -13,12 +13,38 @@ export default function Buttons() {
     .catch(err => console.error(err))
   }
 
-  const actionGetter = (id) => {
-    fetch(`http://localhost:5000/act/${id}`, {
+  const actionGetter = async (id) => {
+    fetch(`http://localhost:5000/api/${id}/actions`, {
       method: 'GET'
     })
     .then(res => res.json())
     .then(res => setAction(res))
+    .catch(err => console.error(err))
+  }
+
+  const completer = async (id, complete, proj) => {
+    const data = {completed: !complete}
+    fetch(`http://localhost:5000/act/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .then(() => actionGetter(proj))
+    .catch(err => console.error(err))
+  }
+
+  const deleter = (id, proj) => {
+    console.log(id)
+    fetch(`http://localhost:5000/act/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .then(() => actionGetter(proj))
     .catch(err => console.error(err))
   }
 
@@ -27,19 +53,26 @@ export default function Buttons() {
   },[])
 
   return (
-    <div>
+    <div id="container">
+      <div className="proj">
       {project && project.map(item => (
-        <div key={item.id}>
+        <div className="proj-list" key={item.id}>
           <h2>{item.name}</h2>
-          <p>{item.description}</p>
-          <button onClick={() => actionGetter(item.id)}>Show me actions</button>
-            {action && action.map(item => (
-              <div key={item.id}>
-                <p>{item.description}</p>
-              </div>
-            ))}
+          <p className="proj-p">{item.description}</p>
+
+          <button onClick={() => actionGetter(item.id)}>Show me the actions</button>
         </div>
       ))}
+      </div>
+
+      <div id="actions">
+      {action && action.map(action => (
+        <div className="act-list" key={action.id}>
+          <p onClick={() => completer(action.id, action.completed, action.project_id)} className={action.completed ? 'act-p completed' : 'act-p'} >{action.description}</p>
+          <button onClick={() => deleter(action.id, action.project_id)}>X</button>
+        </div>
+      ))}
+      </div>
     </div>
   )
 }
