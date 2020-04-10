@@ -65,14 +65,24 @@ export default function Buttons() {
       ))}
       </div>
 
-      <div id="actions">
-      {action && action.map(action => (
-        <div className="act-list" key={action.id}>
-          <p onClick={() => completer(action.id, action.completed, action.project_id)} className={action.completed ? 'act-p completed' : 'act-p'} >{action.description}</p>
-          <button onClick={() => deleter(action.id, action.project_id)}>X</button>
+      {action.length > 0 ? (
+        <div id="actions">
+        <h2>Actions</h2>
+        {action && action.map(action => (
+          <div className="act-list" key={action.id}>
+            <section>           
+              <p
+                onClick={() => completer(action.id, action.completed, action.project_id)}
+                className={action.completed ? 'act-p completed' : 'act-p'}
+              >
+                {action.description}</p>
+              <p>{action.notes}</p>
+            </section>
+            <button onClick={() => deleter(action.id, action.project_id)}>X</button>
+          </div>
+        ))}
         </div>
-      ))}
-      </div>
+      ) : (<></>)}
     </div>
   )
 }

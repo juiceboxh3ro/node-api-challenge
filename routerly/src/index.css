@@ -7,14 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.proj {
-  text-align: center;
+
+#container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
+
+.proj { text-align: center; }
 
 .act-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -36,9 +42,10 @@ button {
   padding: 5px 10px;
   border-radius: 3px;
 }
-#container { position: relative; }
+
 #actions {
-  position: absolute;
-  right: 40%;
-  bottom: -150%;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  border-radius: 3px;
 }
