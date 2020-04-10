@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+  routing and middleware
+
 - [ ] Describe Middleware?
+
+	middleware is what happens in-between when a request comes in and when the response goes out. with middleware we can achieve things such as authentication, validation, or logging, as well as provide modularity to our code.
 
 - [ ] Describe a Resource?
 
+  a resource is what our endpoints are returning
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+  the API can return status codes in the 200 range, new HTML, and/or messages that we set
+
 - [ ] How can we partition our application into sub-applications?
+
+  we can separate our endpoints into their own files, potentially in separate folders, and then import (require) them in a common server.js file
 
 ## Minimum Viable Product
 

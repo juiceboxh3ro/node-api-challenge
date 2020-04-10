@@ -1,7 +1,9 @@
+const cors = require('cors');
 const express = require('express');
 const server = express();
 
 server.use(logger)
+server.use(cors())
 server.use(express.json())
 
 const prjRouter = require('./api/projectsRouter')
